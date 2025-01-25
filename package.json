@@ -2,14 +2,16 @@
   "name": "advanced-auth-template",
   "version": "1.0.0",
   "description": "Authentication system with password verification, \u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b\u001b[3~\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[\u001b[C\u001b[C\u001b[C\u001b[C\u001b[h email verification, forgot password and lots more. Its a template",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon backend/server.js"
   },
   "author": "James Othniel \\n jamesothniel7@gmail.com \\n +2349035943514",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chalk": "^5.4.1",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",
     "crypto": "^1.0.1",
