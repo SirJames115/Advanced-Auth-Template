@@ -11,16 +11,20 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Middleware to parse JSON body
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
 app.use("/api/auth", authRoutes);
 
 // //Test
-// app.get("/", (req, res) => {
-//   res.send("I am working. I hope you can see me!!!!!!!");
-// });
+app.get("/", (req, res) => {
+  res.send("I am working. I hope you can see me!!!!!!!");
+});
 
 app.listen(PORT, () => {
-  // connectDB();
+  connectDB();
   console.log(`Server is Listening on port ${PORT}`);
 });
