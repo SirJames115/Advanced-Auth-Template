@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // Middleware to parse JSON body
-app.use(cookieParser()); //allows us to parse incoming cookie
+app.use(cookieParser()); //allows us to parse the incoming cookie
 
 app.use(express.urlencoded({ extended: true }));
 
