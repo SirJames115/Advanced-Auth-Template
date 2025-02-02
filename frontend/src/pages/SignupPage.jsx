@@ -1,18 +1,30 @@
 import { motion } from "framer-motion";
-import { User, Mail, Lock } from "lucide-react";
+import { User, Mail, Lock, Loader } from "lucide-react";
 import Input from "../components/Input";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordStrentgthMeter from "../components/PasswordStrentgthMeter";
+import { useAuthStore } from "../store/authStore";
 
 const SignupPage = () => {
-  const handleSignup = (e) => {
-    e.preventDefault();
-  };
+  const navigate = useNavigate();
+  const { signup, error, isLoading } = useAuthStore();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    try {
+      await signup(email, password, name);
+      navigate("/verify-email");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -48,13 +60,19 @@ const SignupPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <PasswordStrentgthMeter password={password} />
+          {error && <p className="text-red-400 font-semibold mt-2">{error}</p>}
           <motion.button
             className="mt-5 w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
             whileHover={{ scale: 1.02 }}
             whiletop={{ scale: 0.98 }}
             type="submit"
+            disabled={isLoading}
           >
-            Sign Up
+            {isLoading ? (
+              <Loader className="animate-spin mx-auto" size={24} />
+            ) : (
+              "Sign Up"
+            )}
           </motion.button>
         </form>
       </div>

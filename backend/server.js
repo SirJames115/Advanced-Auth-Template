@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import colors from "colors";
@@ -12,6 +13,13 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use(
+  cors({
+    origin: "http://localhost:5173", // allow all origins
+    credentials: true, // allow cookies
+  })
+); // Enable cors for all routes
 
 app.use(express.json()); // Middleware to parse JSON body
 app.use(cookieParser()); //allows us to parse the incoming cookie
