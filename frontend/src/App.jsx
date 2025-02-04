@@ -7,6 +7,7 @@ import EmailVerificationPage from "./pages/EmailVerificationPage";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authStore";
 import DashboardPage from "./pages/DashboardPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 // Protected routes that require authentication
@@ -93,6 +94,14 @@ function App() {
           }
         />
         <Route path="/verify-email" element={<EmailVerificationPage />} />
+        <Route
+          path="/forgot-password"
+          element={
+            <RedirectAuthenticatedUser>
+              <ForgotPasswordPage />
+            </RedirectAuthenticatedUser>
+          }
+        />
       </Routes>
       <Toaster />
     </div>
