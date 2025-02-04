@@ -9,6 +9,7 @@ import { useAuthStore } from "./store/authStore";
 import DashboardPage from "./pages/DashboardPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import LoadingSpinner from "./components/LoadingSpinner";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 // Protected routes that require authentication
 const ProtectedRoute = ({ children }) => {
@@ -99,6 +100,14 @@ function App() {
           element={
             <RedirectAuthenticatedUser>
               <ForgotPasswordPage />
+            </RedirectAuthenticatedUser>
+          }
+        />
+        <Route
+          path="/reset-password/:token"
+          element={
+            <RedirectAuthenticatedUser>
+              <ResetPasswordPage />
             </RedirectAuthenticatedUser>
           }
         />
