@@ -4,7 +4,9 @@
   "description": "Authentication system with password verification, \u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b\u001b[3~\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[\u001b[C\u001b[C\u001b[C\u001b[C\u001b[h email verification, forgot password and lots more. Its a template",
   "main": "backend/server.js",
   "scripts": {
-    "dev": "nodemon backend/server.js"
+    "dev": "cross-env NODE_ENV=development nodemon backend/server.js",
+    "start": "cross-env NODE_ENV=production node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "James Othniel \\n jamesothniel7@gmail.com \\n +2349035943514",
   "type": "module",
@@ -15,6 +17,7 @@
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.20.0",
